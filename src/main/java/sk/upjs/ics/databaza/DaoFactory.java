@@ -18,20 +18,20 @@ public enum DaoFactory {
 
     public SkuskaDao getSkuskaDao() {
         if (this.skuskaDao == null) {
-            this.skuskaDao = new DatabazovaSkuska(jdbcTemplate);
+            this.skuskaDao = new DatabazovaSkuska(getjdbcTemplate());
         }
         return this.skuskaDao;
     }
 
-    public JdbcTemplate jdbcTemplate() {
+    public JdbcTemplate getjdbcTemplate() {
         if (this.jdbcTemplate == null) {
-            this.jdbcTemplate = new JdbcTemplate(dataSource());
+            this.jdbcTemplate = new JdbcTemplate(getdataSource());
             
         }
         return this.jdbcTemplate;
     }
 
-    public DataSource dataSource() {
+    public DataSource getdataSource() {
         /* jdbc dataSource = new PGSimpleDataSource();
          dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
          dataSource.setDatabaseName("postgres");

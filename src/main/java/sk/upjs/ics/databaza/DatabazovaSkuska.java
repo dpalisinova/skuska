@@ -41,6 +41,8 @@ public class DatabazovaSkuska implements SkuskaDao {
         String sql = "DELETE * FROM " + TABLE_NAME + "WHERE id=?";
         jdbcTemplate.update(sql, skuska.getId());
     }
+   
 
+    
    
 }

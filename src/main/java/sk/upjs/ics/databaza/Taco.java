@@ -1,24 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sk.upjs.ics.databaza;
 
-/**
- *
- * @author Juraj
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class Taco {
 
-    /**
-     * @param args the command line arguments
-     */
+    SkuskaDao skuskaDao = DaoFactory.INSTANCE.getSkuskaDao();
+
+    public void metoda() {
+        List<Skuska> vypis = new ArrayList<>();
+       vypis = skuskaDao.dajVsetky();
+        for (int i = 0; i < vypis.size(); i++) {
+
+            System.out.println(vypis.get(i).getId() + ", " + vypis.get(i).getMeno() + ", " + vypis.get(i).getPriezvisko());
+        }
+    }
+
     public static void main(String[] args) {
-        mainn m = new mainn();
-        m.getSkuskaDao();
-        m.d();
-        
+    Taco ta= new Taco();
+   ta.metoda();
+
     }
 
 }
